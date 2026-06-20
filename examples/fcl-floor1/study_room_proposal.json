@@ -1,0 +1,155 @@
+{
+  "proposalId": "proposal_create_study_room_001",
+  "title": "Create a study room from the east side of the living room",
+  "sourceDocument": "Matterport Sample_FCL Floor1.svg",
+  "sourceSpace": "space_living_room",
+  "newSpace": {
+    "id": "space_study_room_proposed",
+    "type": "Room",
+    "subtype": "StudyRoom",
+    "name": "STUDY ROOM",
+    "geometry": {
+      "type": "Polygon",
+      "points": [
+        [
+          1666.88,
+          1100.0
+        ],
+        [
+          2024.72,
+          1100.0
+        ],
+        [
+          2024.72,
+          1464.24
+        ],
+        [
+          1666.88,
+          1464.24
+        ],
+        [
+          1666.88,
+          1100.0
+        ]
+      ]
+    },
+    "bbox": [
+      1666.88,
+      1100.0,
+      357.84,
+      364.24
+    ],
+    "areaSvgUnits": 130339.6416,
+    "assignedExistingWindows": [
+      "window_0005",
+      "window_0004",
+      "window_0003"
+    ]
+  },
+  "operations": [
+    {
+      "type": "createSpace",
+      "spaceId": "space_study_room_proposed",
+      "name": "STUDY ROOM"
+    },
+    {
+      "id": "proposal_wall_north",
+      "type": "addWall",
+      "geometry": [
+        [
+          1666.88,
+          1100.0
+        ],
+        [
+          2024.72,
+          1100.0
+        ]
+      ],
+      "length": 357.84,
+      "purpose": "Separate the study room from the remaining living room."
+    },
+    {
+      "id": "proposal_wall_west",
+      "type": "addWall",
+      "geometry": [
+        [
+          1666.88,
+          1100.0
+        ],
+        [
+          1666.88,
+          1224.3429999999998
+        ],
+        [
+          1666.88,
+          1303.473
+        ],
+        [
+          1666.88,
+          1464.24
+        ]
+      ],
+      "length": 285.11,
+      "purpose": "Create a partition with a door opening."
+    },
+    {
+      "id": "proposal_door_001",
+      "type": "addDoor",
+      "connects": [
+        "space_living_room",
+        "space_study_room_proposed"
+      ],
+      "hingePoint": [
+        1666.88,
+        1224.343
+      ],
+      "leaf": [
+        [
+          1666.88,
+          1224.343
+        ],
+        [
+          1587.75,
+          1224.343
+        ]
+      ],
+      "swingArc": {
+        "center": [
+          1666.88,
+          1224.343
+        ],
+        "radius": 79.13,
+        "start": [
+          1587.75,
+          1224.343
+        ],
+        "end": [
+          1666.88,
+          1303.473
+        ]
+      },
+      "opensInto": "space_living_room",
+      "swingDirection": "clockwise"
+    }
+  ],
+  "checks": {
+    "hasAccess": true,
+    "hasExteriorWindow": true,
+    "assignedWindowCount": 3,
+    "doorProvided": true,
+    "doorSwingConflict": "unknown",
+    "entryPathBlocked": false,
+    "entryPathStrategy": "The proposed room stays above the lower entry circulation band and uses a west-side internal door.",
+    "circulationImpact": "low_to_medium",
+    "daylightPotential": "medium",
+    "ventilationPotential": "medium"
+  },
+  "assumptions": [
+    "This is an inferred design proposal, not a structural safety decision.",
+    "The proposal uses SVG user units; real-world scale calibration is not applied.",
+    "Load-bearing walls, code compliance, MEP routing, and permit feasibility are unknown.",
+    "The study room is placed against the right exterior window band to preserve daylight and ventilation potential.",
+    "The lower entry-side circulation area is intentionally left open."
+  ],
+  "status": "proposal_for_review"
+}

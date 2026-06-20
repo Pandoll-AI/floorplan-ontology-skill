@@ -1,0 +1,4 @@
+interface:
+  display_name: "Floorplan Ontology"
+  short_description: "SVG 평면도 온톨로지 분석과 리노베이션 검증"
+  default_prompt: "Use $floorplan-ontology to analyze this SVG floorplan and generate inline-SVG HTML reports."

@@ -1,0 +1,228 @@
+{
+  "proposalId": "proposal_relocate_pantry_expand_kitchen_001",
+  "title": "Convert the existing pantry into kitchen area and relocate pantry storage nearby",
+  "sourceDocument": "Matterport Sample_FCL Floor1.svg",
+  "sourceSpaces": [
+    "space_kitchen",
+    "space_pantry"
+  ],
+  "convertedArea": {
+    "id": "area_existing_pantry_to_kitchen",
+    "fromSpace": "space_pantry",
+    "toSpace": "space_kitchen",
+    "name": "KITCHEN EXPANSION",
+    "geometry": {
+      "type": "Polygon",
+      "points": [
+        [
+          1204.65,
+          530.29
+        ],
+        [
+          1315.95,
+          530.29
+        ],
+        [
+          1315.95,
+          692.05
+        ],
+        [
+          1303.69,
+          722.38
+        ],
+        [
+          1230.02,
+          782.75
+        ],
+        [
+          1204.65,
+          760.98
+        ],
+        [
+          1204.65,
+          530.29
+        ]
+      ]
+    },
+    "bbox": [
+      1204.65,
+      530.29,
+      111.3,
+      252.46
+    ],
+    "areaSvgUnits": 24672.8575,
+    "sourceLabelAnchor": [
+      1243.37,
+      684.29
+    ]
+  },
+  "expandedKitchen": {
+    "id": "space_kitchen_expanded_proposed",
+    "type": "Room",
+    "subtype": "Kitchen",
+    "name": "KITCHEN",
+    "inheritsFrom": "space_kitchen",
+    "absorbs": [
+      "space_pantry"
+    ],
+    "bbox": [
+      1204.65,
+      530.29,
+      600.29,
+      252.46
+    ]
+  },
+  "newPantry": {
+    "id": "space_pantry_relocated_proposed",
+    "type": "Storage",
+    "subtype": "TallPantryCabinetBank",
+    "name": "PANTRY",
+    "geometry": {
+      "type": "Polygon",
+      "points": [
+        [
+          1703.54,
+          804.0
+        ],
+        [
+          1764.17,
+          804.0
+        ],
+        [
+          1764.17,
+          876.26
+        ],
+        [
+          1703.54,
+          876.26
+        ],
+        [
+          1703.54,
+          804.0
+        ]
+      ]
+    },
+    "bbox": [
+      1703.54,
+      804.0,
+      60.63,
+      72.26
+    ],
+    "areaSvgUnits": 4381.1238,
+    "placement": "South-east kitchen cabinet run, next to the existing lower kitchen fixtures.",
+    "distanceFromKitchenAnchor": 272.351
+  },
+  "operations": [
+    {
+      "type": "removeSpace",
+      "spaceId": "space_pantry",
+      "name": "PANTRY",
+      "replacement": "space_kitchen_expanded_proposed"
+    },
+    {
+      "id": "proposal_remove_pantry_east_partition",
+      "type": "removeWall",
+      "geometry": [
+        [
+          1303.69,
+          524.49
+        ],
+        [
+          1303.69,
+          692.05
+        ]
+      ],
+      "purpose": "Open the existing pantry footprint into the kitchen work area.",
+      "evidenceSource": [
+        "vec_000101",
+        "vec_000245"
+      ]
+    },
+    {
+      "id": "proposal_remove_pantry_south_angle",
+      "type": "removeWall",
+      "geometry": [
+        [
+          1303.69,
+          692.05
+        ],
+        [
+          1303.69,
+          722.38
+        ],
+        [
+          1230.02,
+          782.75
+        ]
+      ],
+      "purpose": "Remove the angled pantry enclosure and absorb it into the kitchen.",
+      "evidenceSource": [
+        "vec_000100"
+      ]
+    },
+    {
+      "type": "expandSpace",
+      "spaceId": "space_kitchen",
+      "newSpaceId": "space_kitchen_expanded_proposed",
+      "absorbedAreaId": "area_existing_pantry_to_kitchen"
+    },
+    {
+      "type": "createSpace",
+      "spaceId": "space_pantry_relocated_proposed",
+      "name": "PANTRY",
+      "storageMode": "tall_cabinet_bank"
+    },
+    {
+      "id": "proposal_pantry_cabinet_bank",
+      "type": "addStorageCabinet",
+      "spaceId": "space_pantry_relocated_proposed",
+      "geometry": [
+        [
+          1703.54,
+          804.0
+        ],
+        [
+          1764.17,
+          804.0
+        ],
+        [
+          1764.17,
+          876.26
+        ],
+        [
+          1703.54,
+          876.26
+        ],
+        [
+          1703.54,
+          804.0
+        ]
+      ],
+      "purpose": "Replace the removed walk-in pantry with compact pantry storage near the kitchen."
+    }
+  ],
+  "checks": {
+    "oldPantryConvertedToKitchen": true,
+    "newPantryNearKitchen": true,
+    "distanceKitchenAnchorToNewPantry": 272.351,
+    "bedroomDoorBlocked": false,
+    "diningAccessBlocked": false,
+    "entryPathBlocked": false,
+    "kitchenMainAislePreserved": true,
+    "exteriorWindowBlocked": false,
+    "circulationImpact": "low",
+    "daylightImpact": "low",
+    "ventilationImpact": "low",
+    "needsStructuralReview": true,
+    "needsMEPReview": true
+  },
+  "assumptions": [
+    "This is an inferred design proposal, not a structural safety decision.",
+    "The proposal uses SVG user units; real-world scale calibration is not applied.",
+    "The old pantry enclosure is treated as a removable interior partition until verified otherwise.",
+    "The bedroom-side boundary is kept conceptually intact; only the kitchen-side pantry enclosure is removed.",
+    "The relocated pantry is proposed as tall cabinet storage, not a new walk-in room, to avoid blocking kitchen and entry circulation.",
+    "Plumbing, electrical, HVAC, load-bearing walls, code compliance, and permit feasibility must be reviewed before construction."
+  ],
+  "status": "proposal_for_review"
+}

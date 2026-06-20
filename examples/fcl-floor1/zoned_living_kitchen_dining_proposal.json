@@ -1,0 +1,818 @@
+{
+  "proposalId": "proposal_zone_kitchen_dining_living_001",
+  "title": "Separate kitchen, dining, and living while preserving optimized movement",
+  "sourceDocument": "Matterport Sample_FCL Floor1.svg",
+  "sourceSpaces": [
+    "space_kitchen",
+    "space_dining",
+    "space_living_room",
+    "space_entry"
+  ],
+  "proposedSpaces": [
+    {
+      "id": "space_kitchen_zoned_proposed",
+      "type": "Room",
+      "subtype": "Kitchen",
+      "name": "KITCHEN",
+      "geometry": {
+        "type": "Polygon",
+        "points": [
+          [
+            1228.02,
+            530.29
+          ],
+          [
+            2024.77,
+            530.29
+          ],
+          [
+            2024.77,
+            880.13
+          ],
+          [
+            1228.02,
+            880.13
+          ],
+          [
+            1228.02,
+            530.29
+          ]
+        ]
+      },
+      "bbox": [
+        1228.02,
+        530.29,
+        796.75,
+        349.84
+      ],
+      "anchor": [
+        1554.94,
+        634.79
+      ]
+    },
+    {
+      "id": "space_dining_zoned_proposed",
+      "type": "Room",
+      "subtype": "Dining",
+      "name": "DINING",
+      "geometry": {
+        "type": "Polygon",
+        "points": [
+          [
+            1632.1,
+            145.75
+          ],
+          [
+            2024.77,
+            145.75
+          ],
+          [
+            2024.77,
+            530.29
+          ],
+          [
+            1632.1,
+            530.29
+          ],
+          [
+            1632.1,
+            145.75
+          ]
+        ]
+      },
+      "bbox": [
+        1632.1,
+        145.75,
+        392.67,
+        384.54
+      ],
+      "anchor": [
+        1791.06,
+        201.71
+      ]
+    },
+    {
+      "id": "space_living_room_independent_proposed",
+      "type": "Room",
+      "subtype": "LivingSpace",
+      "name": "LIVING ROOM",
+      "geometry": {
+        "type": "Polygon",
+        "points": [
+          [
+            1228.02,
+            886.26
+          ],
+          [
+            2024.77,
+            886.26
+          ],
+          [
+            2024.77,
+            1465.01
+          ],
+          [
+            1228.02,
+            1465.01
+          ],
+          [
+            1228.02,
+            886.26
+          ]
+        ]
+      },
+      "bbox": [
+        1228.02,
+        886.26,
+        796.75,
+        578.75
+      ],
+      "anchor": [
+        1616.83,
+        1170.46
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "type": "createSpace",
+      "spaceId": "space_kitchen_zoned_proposed",
+      "name": "KITCHEN"
+    },
+    {
+      "type": "createSpace",
+      "spaceId": "space_dining_zoned_proposed",
+      "name": "DINING"
+    },
+    {
+      "type": "createSpace",
+      "spaceId": "space_living_room_independent_proposed",
+      "name": "LIVING ROOM"
+    },
+    {
+      "id": "proposal_partition_dining_kitchen",
+      "type": "addWall",
+      "subtype": "light_partition_with_opening",
+      "geometry": [
+        [
+          [
+            1632.1,
+            530.29
+          ],
+          [
+            1750.0,
+            530.29
+          ]
+        ],
+        [
+          [
+            1880.0,
+            530.29
+          ],
+          [
+            2024.77,
+            530.29
+          ]
+        ]
+      ],
+      "opening": {
+        "id": "proposal_opening_kitchen_dining",
+        "geometry": [
+          [
+            1750.0,
+            530.29
+          ],
+          [
+            1880.0,
+            530.29
+          ]
+        ],
+        "widthSvgUnits": 130.0
+      },
+      "purpose": "Separate dining from the kitchen while keeping a short serving path."
+    },
+    {
+      "id": "proposal_partition_living_kitchen",
+      "type": "addWall",
+      "subtype": "light_partition_with_opening",
+      "geometry": [
+        [
+          [
+            1764.17,
+            880.13
+          ],
+          [
+            1830.0,
+            880.13
+          ]
+        ],
+        [
+          [
+            1950.0,
+            880.13
+          ],
+          [
+            2024.77,
+            880.13
+          ]
+        ]
+      ],
+      "opening": {
+        "id": "proposal_opening_kitchen_living",
+        "geometry": [
+          [
+            1830.0,
+            880.13
+          ],
+          [
+            1950.0,
+            880.13
+          ]
+        ],
+        "widthSvgUnits": 120.0
+      },
+      "purpose": "Make the living room independent without blocking the entry-to-kitchen route."
+    },
+    {
+      "id": "proposal_reuse_stair_cabinet_boundary",
+      "type": "reuseExistingBoundary",
+      "geometry": [
+        [
+          1369.34,
+          874.0
+        ],
+        [
+          1764.17,
+          886.26
+        ]
+      ],
+      "purpose": "Use the existing stair/cabinet band as the western part of the kitchen-living separation.",
+      "evidenceSource": [
+        "vec_000206",
+        "vec_000244"
+      ]
+    },
+    {
+      "id": "proposal_sliding_door_kitchen_dining",
+      "type": "addDoor",
+      "subtype": "wide_sliding_or_cased_opening",
+      "connects": [
+        "space_kitchen_zoned_proposed",
+        "space_dining_zoned_proposed"
+      ],
+      "geometry": [
+        [
+          1750.0,
+          530.29
+        ],
+        [
+          1880.0,
+          530.29
+        ]
+      ],
+      "swingDirection": "none_sliding_or_cased_opening"
+    },
+    {
+      "id": "proposal_sliding_door_kitchen_living",
+      "type": "addDoor",
+      "subtype": "wide_sliding_or_cased_opening",
+      "connects": [
+        "space_kitchen_zoned_proposed",
+        "space_living_room_independent_proposed"
+      ],
+      "geometry": [
+        [
+          1830.0,
+          880.13
+        ],
+        [
+          1950.0,
+          880.13
+        ]
+      ],
+      "swingDirection": "none_sliding_or_cased_opening"
+    }
+  ],
+  "analysis": {
+    "scaleStatus": "svg_user_unit",
+    "circulation": {
+      "method": "weighted_graph_proxy",
+      "doorPassages": [
+        {
+          "id": "existing_front_entry_door",
+          "name": "ENTRY DOOR",
+          "point": [
+            1326.0,
+            1631.4
+          ],
+          "connects": [
+            "VERANDA",
+            "ENTRY"
+          ]
+        },
+        {
+          "id": "existing_entry_living_opening",
+          "name": "ENTRY / LIVING OPENING",
+          "point": [
+            1461.0,
+            1465.0
+          ],
+          "connects": [
+            "ENTRY",
+            "LIVING ROOM"
+          ]
+        },
+        {
+          "id": "proposal_opening_kitchen_living",
+          "name": "KITCHEN / LIVING OPENING",
+          "point": [
+            1890.0,
+            880.13
+          ],
+          "connects": [
+            "KITCHEN",
+            "LIVING ROOM"
+          ]
+        },
+        {
+          "id": "proposal_opening_kitchen_dining",
+          "name": "KITCHEN / DINING OPENING",
+          "point": [
+            1815.0,
+            530.29
+          ],
+          "connects": [
+            "KITCHEN",
+            "DINING"
+          ]
+        },
+        {
+          "id": "existing_bedroom_door",
+          "name": "BEDROOM DOOR",
+          "point": [
+            1222.07,
+            856.56
+          ],
+          "connects": [
+            "BEDROOM",
+            "KITCHEN"
+          ]
+        },
+        {
+          "id": "existing_office_door",
+          "name": "OFFICE DOOR",
+          "point": [
+            1228.02,
+            1279.0
+          ],
+          "connects": [
+            "OFFICE",
+            "LIVING ROOM"
+          ]
+        },
+        {
+          "id": "existing_bathroom_door",
+          "name": "BATHROOM DOOR",
+          "point": [
+            1114.23,
+            1018.74
+          ],
+          "connects": [
+            "BATHROOM",
+            "LIVING ROOM"
+          ]
+        }
+      ],
+      "arrows": [
+        {
+          "id": "path_entry_to_living",
+          "from": "ENTRY",
+          "to": "LIVING ROOM",
+          "throughDoorIds": [
+            "existing_front_entry_door",
+            "existing_entry_living_opening"
+          ],
+          "points": [
+            [
+              1326.0,
+              1631.4
+            ],
+            [
+              1415.93,
+              1533.94
+            ],
+            [
+              1461.0,
+              1465.0
+            ],
+            [
+              1616.83,
+              1170.46
+            ]
+          ],
+          "status": "optimized",
+          "purpose": "Direct entry to independent living room through the front door and entry-living opening."
+        },
+        {
+          "id": "path_entry_to_kitchen",
+          "from": "ENTRY",
+          "to": "KITCHEN",
+          "throughDoorIds": [
+            "existing_front_entry_door",
+            "existing_entry_living_opening",
+            "proposal_opening_kitchen_living"
+          ],
+          "points": [
+            [
+              1326.0,
+              1631.4
+            ],
+            [
+              1415.93,
+              1533.94
+            ],
+            [
+              1461.0,
+              1465.0
+            ],
+            [
+              1616.83,
+              1170.46
+            ],
+            [
+              1890.0,
+              880.13
+            ],
+            [
+              1554.94,
+              634.79
+            ]
+          ],
+          "status": "optimized",
+          "purpose": "Kitchen access is routed through explicit door/opening waypoints."
+        },
+        {
+          "id": "path_kitchen_to_dining",
+          "from": "KITCHEN",
+          "to": "DINING",
+          "throughDoorIds": [
+            "proposal_opening_kitchen_dining"
+          ],
+          "points": [
+            [
+              1554.94,
+              634.79
+            ],
+            [
+              1815.0,
+              530.29
+            ],
+            [
+              1791.06,
+              201.71
+            ]
+          ],
+          "status": "optimized",
+          "purpose": "Short serving route through the kitchen-dining opening."
+        },
+        {
+          "id": "path_bedroom_to_living",
+          "from": "BEDROOM",
+          "to": "LIVING ROOM",
+          "throughDoorIds": [
+            "existing_bedroom_door",
+            "proposal_opening_kitchen_living"
+          ],
+          "points": [
+            [
+              986.2,
+              824.24
+            ],
+            [
+              1222.07,
+              856.56
+            ],
+            [
+              1515.0,
+              850.0
+            ],
+            [
+              1890.0,
+              880.13
+            ],
+            [
+              1616.83,
+              1170.46
+            ]
+          ],
+          "status": "secondary",
+          "purpose": "Bedroom route is kept through the existing bedroom door and the living-kitchen opening."
+        },
+        {
+          "id": "path_office_bath_to_living",
+          "from": "OFFICE / BATHROOM",
+          "to": "LIVING ROOM",
+          "throughDoorIds": [
+            "existing_office_door",
+            "existing_bathroom_door",
+            "existing_entry_living_opening"
+          ],
+          "points": [
+            [
+              1065.06,
+              1298.34
+            ],
+            [
+              1228.02,
+              1279.0
+            ],
+            [
+              1461.0,
+              1465.0
+            ],
+            [
+              1616.83,
+              1170.46
+            ]
+          ],
+          "status": "secondary",
+          "purpose": "West-side rooms continue to reach the living room through their existing doors and entry-living opening."
+        }
+      ],
+      "checks": {
+        "entryToLivingDirect": true,
+        "entryToKitchenMaintained": true,
+        "kitchenDiningServingPathShort": true,
+        "livingRoomIndependent": true,
+        "mainOpeningsKeptWide": true,
+        "movementRoutesPassThroughDoorWaypoints": true
+      }
+    },
+    "ventilation": {
+      "method": "airflow_graph_proxy",
+      "arrows": [
+        {
+          "id": "airflow_dining_to_kitchen",
+          "from": "DINING EXTERIOR WINDOWS",
+          "to": "KITCHEN",
+          "throughOpeningIds": [
+            "proposal_opening_kitchen_dining"
+          ],
+          "points": [
+            [
+              1830.0,
+              154.91
+            ],
+            [
+              1830.0,
+              360.0
+            ],
+            [
+              1815.0,
+              530.29
+            ],
+            [
+              1554.94,
+              634.79
+            ]
+          ],
+          "status": "proxy",
+          "purpose": "Potential air transfer from dining exterior windows into the kitchen zone."
+        },
+        {
+          "id": "airflow_living_to_kitchen",
+          "from": "LIVING EAST WINDOWS",
+          "to": "KITCHEN",
+          "throughOpeningIds": [
+            "proposal_opening_kitchen_living"
+          ],
+          "points": [
+            [
+              2024.77,
+              1280.0
+            ],
+            [
+              1940.0,
+              1040.0
+            ],
+            [
+              1890.0,
+              880.13
+            ],
+            [
+              1700.0,
+              710.0
+            ]
+          ],
+          "status": "proxy",
+          "purpose": "Potential cross-zone transfer through the living-kitchen opening."
+        },
+        {
+          "id": "airflow_deck_to_dining",
+          "from": "DECK DOOR/WINDOW BAND",
+          "to": "DINING",
+          "throughOpeningIds": [
+            "existing_deck_dining_door"
+          ],
+          "points": [
+            [
+              1632.1,
+              343.69
+            ],
+            [
+              1720.0,
+              330.0
+            ],
+            [
+              1791.06,
+              201.71
+            ]
+          ],
+          "status": "proxy",
+          "purpose": "Potential air movement from the deck-side opening into dining."
+        },
+        {
+          "id": "airflow_bedroom_to_kitchen",
+          "from": "BEDROOM WINDOW",
+          "to": "KITCHEN",
+          "throughOpeningIds": [
+            "existing_bedroom_door"
+          ],
+          "points": [
+            [
+              986.15,
+              530.39
+            ],
+            [
+              1040.0,
+              700.0
+            ],
+            [
+              1222.07,
+              856.56
+            ],
+            [
+              1360.0,
+              760.0
+            ],
+            [
+              1554.94,
+              634.79
+            ]
+          ],
+          "status": "proxy",
+          "purpose": "Bedroom exterior opening can transfer air through the bedroom door into the kitchen zone."
+        },
+        {
+          "id": "airflow_bathroom_to_living",
+          "from": "BATHROOM WINDOW",
+          "to": "LIVING ROOM",
+          "throughOpeningIds": [
+            "existing_bathroom_door",
+            "existing_entry_living_opening"
+          ],
+          "points": [
+            [
+              848.18,
+              1018.73
+            ],
+            [
+              980.0,
+              1018.74
+            ],
+            [
+              1114.23,
+              1018.74
+            ],
+            [
+              1461.0,
+              1465.0
+            ],
+            [
+              1616.83,
+              1170.46
+            ]
+          ],
+          "status": "proxy",
+          "purpose": "Bathroom-side airflow path is shown through the bathroom door and entry-living opening."
+        },
+        {
+          "id": "airflow_office_to_living",
+          "from": "OFFICE WINDOW",
+          "to": "LIVING ROOM",
+          "throughOpeningIds": [
+            "existing_office_door",
+            "existing_entry_living_opening"
+          ],
+          "points": [
+            [
+              995.43,
+              1467.65
+            ],
+            [
+              1110.0,
+              1370.0
+            ],
+            [
+              1228.02,
+              1279.0
+            ],
+            [
+              1461.0,
+              1465.0
+            ],
+            [
+              1616.83,
+              1170.46
+            ]
+          ],
+          "status": "proxy",
+          "purpose": "Office exterior opening can feed the living zone through existing doors."
+        },
+        {
+          "id": "airflow_veranda_entry_living",
+          "from": "VERANDA / ENTRY DOOR",
+          "to": "LIVING ROOM",
+          "throughOpeningIds": [
+            "existing_front_entry_door",
+            "existing_entry_living_opening"
+          ],
+          "points": [
+            [
+              1448.0,
+              1635.43
+            ],
+            [
+              1326.0,
+              1631.4
+            ],
+            [
+              1415.93,
+              1533.94
+            ],
+            [
+              1461.0,
+              1465.0
+            ],
+            [
+              1616.83,
+              1170.46
+            ]
+          ],
+          "status": "proxy",
+          "purpose": "Entry and veranda opening are included in whole-house airflow."
+        }
+      ],
+      "coverage": "whole_floor_proxy",
+      "spacesConsidered": [
+        "DINING",
+        "KITCHEN",
+        "LIVING ROOM",
+        "BEDROOM",
+        "BATHROOM",
+        "OFFICE",
+        "ENTRY",
+        "VERANDA",
+        "DECK"
+      ],
+      "potential": "medium",
+      "unknowns": [
+        "window operability",
+        "wind direction",
+        "opening area calibration",
+        "ceiling height"
+      ]
+    },
+    "visualization": {
+      "layers": [
+        "proposal-zone-layer",
+        "analysis-circulation-layer",
+        "analysis-ventilation-layer",
+        "analysis-warnings-layer"
+      ]
+    }
+  },
+  "checks": {
+    "kitchenSeparated": true,
+    "diningSeparated": true,
+    "livingIndependent": true,
+    "entryPathBlocked": false,
+    "kitchenDiningPathMaintained": true,
+    "livingKitchenPathMaintained": true,
+    "doorSwingConflict": "low_sliding_openings",
+    "ventilationPathShown": true,
+    "circulationArrowsShown": true,
+    "movementRoutesPassThroughDoors": true,
+    "wholeHouseAirflowShown": true,
+    "needsStructuralReview": true,
+    "needsMEPReview": false
+  },
+  "assumptions": [
+    "This is an inferred design proposal, not a structural safety decision.",
+    "The proposal uses SVG user units; real-world scale calibration is not applied.",
+    "New partitions are modeled as light partitions or sliding/cased openings, not confirmed structural walls.",
+    "Airflow arrows are qualitative airflow graph proxies, not CFD results.",
+    "Movement arrows show intended optimized circulation, not measured pedestrian simulation."
+  ],
+  "status": "proposal_for_review"
+}
