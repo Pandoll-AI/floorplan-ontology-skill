@@ -13,17 +13,41 @@ Codex에 설치하고 말로 시키면, SVG 평면도를 바로 분석해서 공
 
 ## Demo
 
-### 원래 도면
+원래 도면과 공사 요청 3건을 같은 크롭 기준의 흰 배경 preview로 비교합니다. 이미지를 누르면 해당 HTML 리포트로 이동합니다.
 
-![Original floorplan](examples/fcl-floor1/original.svg)
-
-### 공사 요청 3건 비교
-
-| 요청 | 말로 시키는 예 | 결과 이미지 |
-| --- | --- | --- |
-| 거실 일부를 공부방으로 분할 | `거실 공간을 분할하여 공부방을 만들어줘. 출입구는 막지 마.` | ![Study room proposal](examples/fcl-floor1/study_room_overlay.svg) |
-| 팬트리를 주방으로 전환하고 팬트리 재배치 | `팬트리를 없애고 주방으로 바꿔주고, 팬트리는 주방 가까운 곳에 다시 설치해줘.` | ![Kitchen pantry proposal](examples/fcl-floor1/kitchen_pantry_overlay.svg) |
-| 주방, 식탁 공간, 거실 분리 + 동선/바람 표시 | `주방과 식탁을 별도 공간으로, 거실은 독립 공간으로 만들고 이동 화살표와 바람 흐름도 표시해줘.` | ![Zoned living kitchen dining proposal](examples/fcl-floor1/zoned_living_kitchen_dining_overlay.svg) |
+<table>
+  <tr>
+    <td width="50%">
+      <strong>원래 도면</strong><br>
+      <a href="examples/fcl-floor1/report.html"><img src="examples/fcl-floor1/previews/original_preview.svg" alt="원래 도면" width="420"></a><br>
+      <a href="examples/fcl-floor1/report.html">기본 분석 리포트</a> ·
+      <a href="examples/fcl-floor1/overlay.svg">ontology overlay</a>
+    </td>
+    <td width="50%">
+      <strong>요청 1: 거실 일부를 공부방으로 분할</strong><br>
+      <a href="examples/fcl-floor1/study_room_report.html"><img src="examples/fcl-floor1/previews/study_room_preview.svg" alt="공부방 분할 제안" width="420"></a><br>
+      <a href="examples/fcl-floor1/study_room_report.html">공사 요청 리포트</a> ·
+      <a href="examples/fcl-floor1/study_room_proposal.json">공사 요청 데이터</a> ·
+      <a href="examples/fcl-floor1/study_room_overlay.svg">overlay SVG</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <strong>요청 2: 팬트리를 주방으로 전환하고 팬트리 재배치</strong><br>
+      <a href="examples/fcl-floor1/kitchen_pantry_report.html"><img src="examples/fcl-floor1/previews/kitchen_pantry_preview.svg" alt="팬트리 주방 전환 제안" width="420"></a><br>
+      <a href="examples/fcl-floor1/kitchen_pantry_report.html">공사 요청 리포트</a> ·
+      <a href="examples/fcl-floor1/kitchen_pantry_proposal.json">공사 요청 데이터</a> ·
+      <a href="examples/fcl-floor1/kitchen_pantry_overlay.svg">overlay SVG</a>
+    </td>
+    <td width="50%">
+      <strong>요청 3: 주방, 식탁 공간, 거실 분리 + 동선/바람 표시</strong><br>
+      <a href="examples/fcl-floor1/zoned_living_kitchen_dining_report.html"><img src="examples/fcl-floor1/previews/zoned_living_kitchen_dining_preview.svg" alt="주방 식탁 거실 분리 제안" width="420"></a><br>
+      <a href="examples/fcl-floor1/zoned_living_kitchen_dining_report.html">공사 요청 리포트</a> ·
+      <a href="examples/fcl-floor1/zoned_living_kitchen_dining_proposal.json">공사 요청 데이터</a> ·
+      <a href="examples/fcl-floor1/zoned_living_kitchen_dining_overlay.svg">overlay SVG</a>
+    </td>
+  </tr>
+</table>
 
 자세한 비교는 [공사 요청 비교 문서](docs/proposal-comparison.md)를 보세요.
 
