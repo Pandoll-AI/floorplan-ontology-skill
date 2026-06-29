@@ -1,5 +1,7 @@
 # Floorplan Ontology Skill
 
+![Floorplan Ontology Skill hero](assets/hero.png)
+
 Codex에 설치하고 말로 시키면, SVG 평면도를 바로 분석해서 공간/벽/문/창문 엔티티와 공사 제안 리포트를 만들어주는 스킬입니다.
 
 예를 들어 이렇게 요청할 수 있습니다.
