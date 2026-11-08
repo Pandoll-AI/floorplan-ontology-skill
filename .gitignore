@@ -7,3 +7,7 @@ dist/
 build/
 .venv/
 venv/
+
+# Local AI assistant workspace files
+.claude/
+.codex/
